@@ -21,13 +21,13 @@
 در سال ۲۰۱۲، شعبه‌ی کانادایی WalMart تصمیم به بازسازی سایت فروش خود گرفت ( WalMart.ca ) و از همین رو با شرکت فناورانه‌ی Nurun وارد مذاکره شد؛ شرکت Nurun یکی از شرکت‌های تولید نرم‌افزار و سرویس‌های نرم‌افزاری است که در زمینه‌ی e-Commerence نیز تجربه دارد. در راه حل ارائه شده توسط شرکت Nurun چارچوب/بستر Typesafe خود‌نمایی میکرد. توسعه‌ی سریعتر با استفاده از Scala و Play تا حداقل ۲ برابر ( نسبت به بستر سابق شرکت WalMart که Java بود )، کاهش هزینه‌های سخت‌افزاری شرکت بین 20 تا 50 درصد و استفاده حداکثری از کتابخانه‌های موجود ( که به زبان جاوا بودند ) از مزایای این انتخاب بود. یکی دیگر از مزایای چارچوب Typesafe و بالطبع زبان Scala امکان Deploy راحتر نرم‌افزار نسبت به Java و JavaEE بود.
 
 گروه فنی خبرگذاری Guardian، هم در بازسازی بستر‌نرم افزاری از Scala و Play انتخاب کردند؛ بستر پیشین این شرکت Spring ، Java و Hibernate بود.از نتایج حاصله‌ی این انتخاب برای گروه فنی Guardian، سرعت در توسعه، Scalable بودن Scala و همین‌طور جذابیت بیشتر این زبان بود.
-سرویس Wandoujia یک سایت ( + نرم‌افزار گوشی ) ارائه کننده خدمات سرگرمی به کاربران تلفن‌های همراه در چین است که قریب ۴۰۰ میلیون کاربر دارد. این سرویس با Scala و Akka ایجاد شده و طبق اعلام گروه توسعه‌ی سرویس ( بر اساس benchmark های انجام شده ) انتظار می‌رود به ازائ هر سرور بتوانند به ۱ میلیون اتصال ( Simultaneous Connections ) سرویس بدهند. {منبع: http://typesafe.com/blog/qa-with-caoyuan-deng-akka-at-wandoujia}
+سرویس Wandoujia یک سایت ( + نرم‌افزار گوشی ) ارائه کننده خدمات سرگرمی به کاربران تلفن‌های همراه در چین است که قریب ۴۰۰ میلیون کاربر دارد. این سرویس با Scala و Akka ایجاد شده و طبق اعلام گروه توسعه‌ی سرویس ( بر اساس benchmark های انجام شده ) انتظار می‌رود به ازائ هر سرور بتوانند به ۱ میلیون اتصال ( Simultaneous Connections ) سرویس بدهند.
 
 شرکت WhitePages هم با بازنویسی بخش‌های اساسی سیستم خود، قریب 90 درصد در منابع سخت افزاری صرفه‌جویی کرد! (پبشتر WhitePages از Ruby و Perl استفاده میکرد). StartUp موفق Coursera نیز یکی دیگر از نمونه‌ای هایی است برای دست یابی به سرعت بالاتر از PHP به Scala مهاجرت کردند.
 
 اگر علاقه‌مند هستید می‌توانید لیستی از نامدارترین شرکت‌هایی که آشکارا از Scala استفاده کردند را در آدرس typesafe.com/company/casestudies ببینید.
 
-نکته: Yammer در سال ۲۰۱۱ اعلام کرد که می‌خواد از Scala به Java مهاجرت کند؛ دیلایل آن‌ها برای این کار پیچیدگی و عدم بلوغ این زبان برنامه‌نویسی است. این نشان‌دهنده‌ی این است که یک ابزار برای همه‌ی کارها و همه‌گروه‌ها مناسب نیست.
+نکته: Yammer در سال ۲۰۱۱ اعلام کرد که می‌خواد از Scala به Java مهاجرت کند؛ دلایل آن‌ها برای این کار پیچیدگی و عدم بلوغ این زبان برنامه‌نویسی است. این نشان‌دهنده‌ی این است که یک ابزار برای همه‌ی کارها و همه‌گروه‌ها مناسب نیست.
 
 ### … ولی چرا اسکالا ؟
 
@@ -35,26 +35,24 @@
 
 - چابکی (Agility) و Productivty : با شرایط کنونی تجارت، سرعت در ارائه‌ی خدمات و توسعه‌ی آن از موارد غیر قابل چشم‌پوشی است؛ Scala با تکیه بر قابلیت‌های Functional و Syntax فوق‌العاده منعطف خود به عنوان زبان DSL Friendly مطرح می‌شود؛ زبان‌های DSL برای حل مشکلات خاص طراحی می‌شوند، به گونه‌ای که برای حل آن مشکل خلاصه ترین راه ممکن را ارائه میدهند ( مثل زبان R در پردازش اطلاعات ). زبان‌های DSL Firendly از هم مانند زبان‌های DSL، راه حل‌های خلاصه، سریع و مناسب را برای مشکل مورد نظر ارائه میدهند؛ Scala و Ruby از زبان‌های DSL Frinedly به حساب می‌آیند. اما متاستفانه Ruby در زمان اجرا سرعت خوبی ندارد.
 
-‍‍‍‍‍```
-// Read a file and print to Output
+      // Read a file and print to Output
 
-// Scala
-val file  = scala.io.Source.fromFile(“filename”)
-file.getLines foreach println
+      // Scala
+      val file  = scala.io.Source.fromFile(“filename”)
+      file.getLines foreach println
 
-// Ruby
-f = File.open(“filename”)
-f.each_line do | line |
-   puts line
-end
+      // Ruby
+      f = File.open(“filename”)
+      f.each_line do | line |
+         puts line
+      end
 
-// Java
-InputStream in = InputStreamReader( new File(“filename”) );
-Scanner file = new Scanner( in );
-while( file.hasNextLine() ){
-   System.out.println( file.getNextLine() );
-}
-```
+      // Java
+      InputStream in = InputStreamReader( new File(“filename”) );
+      Scanner file = new Scanner( in );
+      while( file.hasNextLine() ){
+         System.out.println( file.getNextLine() );
+      }
 
 - مقیاس‌پذیز (Scalablity)  و Performance : زبان Scala یک زبان Static است که پس از کامپایل به ByteCode های JVM تبدیل می‌شود. JVM از نظر سرعت هیچ کمبودی ندارد؛ بلاخص وقتی که JVM به واسطه‌ی ویژگی JIT ، به نهایت سرعت محاسباتی سخت‌افزار دست پیدا می‌کند. از طرفی دیگر Scala به واسطه‌ی قابلیت‌هایی که دارد، برنامه‌نویس را قادر می‌سازد تا به راحتی بتواند برنامه‌اش را مناسب با سخت‌افزار های MultiCore بنویسد؛ در این حالت برنامه از تمام منابع سیستم برای پردازش سریع‌تر استفاده میکند. از آنجایی که چارچوب/بستر Typesafe بر اساس معماری Reactive بنا شده است، Scalablity از ویژگی‌های اساسی آن است. Performance خوب در کنار قابلیت‌های Scalablity و همچنین productivity بالای Scala باعث می‌شود تا گروه برنامه‌نویسی با فراق خاطر روی حل مسأله و Bisuness تمرکز داشته باشد.
 
@@ -122,4 +120,4 @@ About Gaurdian migiration: http://www.infoq.com/articles/guardian_scala
 About Yammer migration **from** Scala:
 - http://www.infoworld.com/t/java-programming/yammer-banks-scala-ends-moving-java-180803
 - https://gist.github.com/anonymous/1406238
-
+http://typesafe.com/blog/qa-with-caoyuan-deng-akka-at-wandoujia
